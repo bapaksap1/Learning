@@ -6,6 +6,8 @@ import reportWebVitals from './reportWebVitals';
 import { theme }from "./utils/ThemeProvider"
 import Home from './container/Home';
 import { ThemeProvider } from 'styled-components';
+import {Menu} from "./utils/constants/menu";
+import Navbar from "./component/Navbar";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -13,6 +15,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
+        <Navbar item={Menu} />
     <Home />
     </ThemeProvider>
   </React.StrictMode>

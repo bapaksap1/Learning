@@ -1,24 +1,24 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import { theme }from "./utils/ThemeProvider"
-import Home from './container/Home';
-import { ThemeProvider } from 'styled-components';
-import {Menu} from "./utils/constants/menu";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { theme } from "./utils/ThemeProvider";
+import Home from "./container/Home";
+import { ThemeProvider } from "styled-components";
+import { Menu } from "./utils/constants/menu";
 import Navbar from "./component/Navbar";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement,
 );
 root.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
         <Navbar item={Menu} />
-    <Home />
+        <Home />
     </ThemeProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );
 
 // If you want to start measuring performance in your app, pass a function

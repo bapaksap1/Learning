@@ -80,8 +80,9 @@ const Menu = styled.button<Tbutton>`
   background-color: transparent;
   border: none;
   outline: none;
+  color: #7D7B7B;
   &:hover {
-    background-color: blue;
+    text-decoration: ${({ $selected }) => ($selected ? "underline" : "none")};
+    color: ${({$selected}) => ($selected ? "black" : "none")};
   }
-  text-decoration: ${({ $selected }) => ($selected ? "underline" : "none")};
 `;

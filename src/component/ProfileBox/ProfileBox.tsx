@@ -7,7 +7,7 @@ import github from "../../icons/github.svg";
 import Button from "../Button";
 import H1 from "../Font/H1";
 import H2 from "../Font/H2";
-
+import { Photo, Biodata } from "../../utils/constants/menu";
 
 const ProfileBox = () => {
   const onClick = () => {
@@ -39,7 +39,9 @@ const ProfileBox = () => {
         </ButtonContaier>
         <div className="content"></div>
       </Description>
-      <div>cek</div>
+      <Description>
+        <PP src={Photo} alt="pic" />
+      </Description>
     </Container>
   );
 };
@@ -48,7 +50,7 @@ export default ProfileBox;
 
 const Container = styled.div`
   border: 1.5px outset;
-  height: 450px;
+  height: 400px;
   background-color: #fdfdfd;
   display: flex;
   justify-content: space-around;
@@ -73,4 +75,9 @@ const ButtonContaier = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
+`;
+const PP = styled.img`
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
 `;

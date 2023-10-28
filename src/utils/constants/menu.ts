@@ -6,6 +6,7 @@ type Tbio = {
 }
 
 export  const Menu:Tmenu = ["Work", "About Me", "Blog", "Content"]
+export const NavMenu:Tmenu = ['All', "Website", "Mobile"]
 
 export const Photo:Tphoto = "OKQU7M0.jpg"
 

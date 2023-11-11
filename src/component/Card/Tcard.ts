@@ -3,5 +3,6 @@ export type Tcard = {
   category: string;
   title: string;
   year: string;
+  onClick: React.MouseEventHandler<HTMLDivElement>;
   center?: boolean
 };

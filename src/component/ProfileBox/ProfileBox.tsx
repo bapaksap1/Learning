@@ -7,7 +7,7 @@ import github from "../../icons/github.svg";
 import Button from "../Button";
 import H1 from "../Font/H1";
 import H2 from "../Font/H2";
-import { Photo, Biodata } from "../../utils/constants/menu";
+import { Photo } from "../../utils/constants/menu";
 
 const ProfileBox = () => {
   const onClick = () => {

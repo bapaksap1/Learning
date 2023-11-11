@@ -1,12 +1,16 @@
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import { Photo, Biodata } from "../../utils/constants/menu";
 import { TNavbar } from "./Tnavbar";
 
 const Navbar: FC<TNavbar> = (props) => {
-  const [selected, setSelected] = useState("Home");
+  const SelectedMenu = useRef("Work");
+  const [selectedMenu, setSelectedMenu] = useState("Work");
 
-  const selectButton = () => {};
+  const selectButton = (menu: string) => {
+    setSelectedMenu(menu);
+  };
+
   return (
     <Container>
       <link
@@ -22,7 +26,12 @@ const Navbar: FC<TNavbar> = (props) => {
       </ProfileContainer>
       <MenuContainer>
         {props.item.map((e) => (
-          <Menu key={e} $selected={e}>
+          <Menu
+            key={e}
+            $selected={e}
+            onClick={() => selectButton(e)}
+            $onActive={selectedMenu === e}
+          >
             {e}
           </Menu>
         ))}
@@ -36,8 +45,11 @@ export default Navbar;
 const Container = styled.div`
   display: flex;
   padding: 30px 90px 30px 90px;
+  box-sizing: border-box;
   justify-content: space-between;
   background-color: #fff;
+  position: fixed;
+  width: 100%;
 `;
 const ProfileContainer = styled.div`
   display: flex;
@@ -72,6 +84,7 @@ const MenuContainer = styled.div`
 
 type Tbutton = {
   $selected: string;
+  $onActive: boolean;
 };
 
 const Menu = styled.button<Tbutton>`
@@ -80,9 +93,16 @@ const Menu = styled.button<Tbutton>`
   background-color: transparent;
   border: none;
   outline: none;
-  color: #7D7B7B;
+  color: ${({ $onActive }) => ($onActive ? "black" : "#7d7b7b")};
+  text-decoration: ${({ $onActive }) => ($onActive ? "underline" : "none")};
   &:hover {
     text-decoration: ${({ $selected }) => ($selected ? "underline" : "none")};
-    color: ${({$selected}) => ($selected ? "black" : "none")};
+    color: ${({ $selected }) => ($selected ? "black" : "none")};
+  }
+  &:active {
+    color: ${({ $onActive }) => ($onActive ? "red" : "#7d7b7b")};
+    text-decoration: ${({ $onActive }) => ($onActive ? "underline" : "none")};
+  }
+  & {
   }
 `;

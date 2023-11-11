@@ -1,12 +1,25 @@
 import React from "react";
 import Slider from "react-slick";
 import Card from "../Card";
-import styled from "styled-components";
 import arrowRight from "../../icons/arrow-right.svg";
 import arrowLeft from "../../icons/arrow-left.svg";
+import { useNavigate } from "react-router-dom";
 
-const SimpleSlider = () => {
+type Tslider = {
+  cardContent?: {
+    year: string;
+    image: string;
+    category: string;
+    description: string;
+  }[];
+  card?: boolean;
+};
+
+const SimpleSlider: React.FC<Tslider> = (props) => {
+  let navigate = useNavigate();
   const settings = {
+    className: "center",
+    centerMode: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
@@ -14,20 +27,24 @@ const SimpleSlider = () => {
     nextArrow: <img src={arrowRight} alt="" />,
     prevArrow: <img src={arrowLeft} alt="" />,
     dots: true,
-    centerMode: true,
   };
 
   return (
     <Slider {...settings}>
-      <Card image={"a"} category={"a"} title={"a"} year={"a"}  center={true}/>
-      <Card image={"a"} category={"a"} title={"a"} year={"a"}  center={true}/>
-      <Card image={"a"} category={"a"} title={"a"} year={"a"}  center={true}/>
-      <Card image={"a"} category={"a"} title={"a"} year={"a"}  center={true}/>
-      <Card image={"a"} category={"a"} title={"a"} year={"a"}  center={true}/>
+      {props.card
+        ? props?.cardContent?.map((e) => (
+            <Card
+              image={e.image}
+              category={e.category}
+              title={e.description}
+              year={e.year}
+              center
+              onClick={() => navigate("/detail")}
+            />
+          ))
+        : null}
     </Slider>
   );
 };
 
 export default SimpleSlider;
-
-

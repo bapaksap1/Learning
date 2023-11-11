@@ -7,10 +7,8 @@ import { grey } from "../../utils/constants/color";
 const Card: React.FC<Tcard> = (props) => {
   return (
     <Align $center={props.center}>
-      <Container>
-        <ImageContainer>
-          <img src={props.image} />
-        </ImageContainer>
+      <Container onClick={props.onClick}>
+        <Picture src={props.image} alt={"pic"} />
         <Detail>
           <P label={props.category} color={grey} />
           <Description>
@@ -31,7 +29,7 @@ type Talign = {
 
 const Align = styled.div<Talign>`
   display: flex;
-  justify-content: ${({ $center }) => ($center ? "center" : "none")};;
+  justify-content: ${({ $center }) => ($center ? "center" : "none")};
 `;
 
 const Container = styled.div`
@@ -44,10 +42,6 @@ const Container = styled.div`
   border: solid black 1px;
 `;
 
-const ImageContainer = styled.div`
-  background-color: red;
-`;
-
 const Detail = styled.div`
   display: flex;
   flex-direction: column;
@@ -58,4 +52,10 @@ const Detail = styled.div`
 const Description = styled.div`
   display: flex;
   justify-content: space-between;
+`;
+
+const Picture = styled.img`
+  width: 100%;
+  height: 100%;
+  border-radius: 10px 10px 0px 0px;
 `;

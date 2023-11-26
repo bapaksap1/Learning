@@ -3,12 +3,18 @@ import styled from "styled-components";
 import H2 from "../component/Font/H2";
 import H1 from "../component/Font/H1";
 import P from "../component/Font/P";
+import PictureSlider from "../component/PictureSlider";
+import Badge from "../component/Badge";
+import pictureSlider from "../component/PictureSlider";
+import {PictureSlide} from "../utils/constants/project";
 
 const Detail = () => {
   return (
     <Container>
       <Content>
-        <ProjectPicture>1</ProjectPicture>
+        <ProjectPicture>
+          <PictureSlider pictures={PictureSlide} />
+        </ProjectPicture>
         <Description>
           <Title>
             <H1 label={"Internet Banking Back Office"} />
@@ -21,6 +27,13 @@ const Detail = () => {
             lineHeight={1.5}
             label="Back office is made up of personnel who support the operations of a company but do not directly interact with customers."
           />
+          <div style={{ display: "flex", gap: "10px" }}>
+            <Badge tag="React" />
+            <Badge tag="Typescript" />
+            <Badge tag="React" />
+            <Badge tag="React" />
+            <Badge tag="React" />
+          </div>
         </Description>
       </Content>
     </Container>
@@ -34,6 +47,7 @@ const Container = styled.div`
   height: 100vh;
   box-sizing: border-box;
   display: flex;
+  padding-top: 100px;
   justify-content: center;
   align-items: center;
 `;
@@ -44,12 +58,16 @@ const Content = styled.div`
   gap: 20px;
   justify-content: center;
   padding: 10px;
+  box-sizing: border-box;
 `;
 
 const ProjectPicture = styled.div`
-  width: 500px;
-  height: 500px;
+  width: 600px;
+  height: 600px;
   //background-color: green;
+  padding: 20px;
+  display: flex;
+  justify-content: flex-start;
 `;
 
 const Description = styled.div`

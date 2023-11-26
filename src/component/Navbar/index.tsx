@@ -1,10 +1,11 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useState } from "react";
 import styled from "styled-components";
 import { Photo, Biodata } from "../../utils/constants/menu";
 import { TNavbar } from "./Tnavbar";
+import { useNavigate } from "react-router-dom";
 
 const Navbar: FC<TNavbar> = (props) => {
-  const SelectedMenu = useRef("Work");
+  const navigate = useNavigate();
   const [selectedMenu, setSelectedMenu] = useState("Work");
 
   const selectButton = (menu: string) => {
@@ -17,7 +18,7 @@ const Navbar: FC<TNavbar> = (props) => {
         href="https://fonts.cdnfonts.com/css/itim-2"
         rel="stylesheet"
       ></link>
-      <ProfileContainer>
+      <ProfileContainer onClick={() => navigate("/")}>
         <ProfilePhoto src={Photo} />
         <NameContainer>
           <Name>{Biodata.name}</Name>

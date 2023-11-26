@@ -26,3 +26,6 @@ export const project = [
     image: `${digitalBank}`,
   },
 ];
+
+export const PictureSlide = ["test1.jpeg", "test2.jpeg", "test3.jpeg", "test4.jpeg"]
+

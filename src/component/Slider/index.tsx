@@ -17,6 +17,7 @@ type Tslider = {
 
 const SimpleSlider: React.FC<Tslider> = (props) => {
   let navigate = useNavigate();
+
   const settings = {
     className: "center",
     centerMode: true,
@@ -34,6 +35,7 @@ const SimpleSlider: React.FC<Tslider> = (props) => {
       {props.card
         ? props?.cardContent?.map((e) => (
             <Card
+              key={e.description}
               image={e.image}
               category={e.category}
               title={e.description}

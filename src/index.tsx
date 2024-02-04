@@ -10,6 +10,7 @@ import Navbar from "./component/Navbar";
 import * as ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Detail from "./container/Detail";
+import Work from "./container/Work";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: "/detail",
         element: <Detail />,
+      },
+      {
+        path: "/work",
+        element: <Work />,
       },
     ],
   },

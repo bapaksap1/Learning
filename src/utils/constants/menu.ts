@@ -5,7 +5,7 @@ type Tbio = {
     role: string
 }
 
-export  const Menu:Tmenu = ["Work", "About Me", "Blog", "Content"]
+export  const Menu:Tmenu = ["Home", "Work", "About Me", "Content"]
 export const NavMenu:Tmenu = ['All', "Website", "Mobile"]
 
 export const Photo:Tphoto = "OKQU7M0.jpg"

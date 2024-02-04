@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { Tcard } from "./Tcard";
 import P from "../Font/P";
-import { grey } from "../../utils/constants/color";
+import { darkGrey, grey } from "../../utils/constants/color";
 
 const Card: React.FC<Tcard> = (props) => {
   return (
     <Align $center={props.center}>
-      <Container onClick={props.onClick}>
+      <Container onClick={props.onClick} $display={props.display}>
         <Picture src={props.image} alt={"pic"} />
         <Detail>
           <P label={props.category} color={grey} />
@@ -23,23 +23,29 @@ const Card: React.FC<Tcard> = (props) => {
 
 export default Card;
 
-type Talign = {
-  $center?: boolean;
+Card.defaultProps = {
+  display: "horizontal",
 };
 
-const Align = styled.div<Talign>`
+type TStyle = {
+  $center?: boolean;
+  $display?: string;
+};
+
+const Align = styled.div<TStyle>`
   display: flex;
   justify-content: ${({ $center }) => ($center ? "center" : "none")};
 `;
 
-const Container = styled.div`
+const Container = styled.div<TStyle>`
   border-radius: 10px;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 75% 25%;
-  width: 370px;
-  height: 300px;
-  border: solid black 1px;
+  grid-template-rows: ${({ $display }) => ($display === "vertical" ? "60% 40%" : "75% 25%")};;
+  width: ${({ $display }) => ($display === "vertical" ? "360px" : "370px")};
+  height: ${({ $display }) => ($display === "vertical" ? "400px" : "300px")};
+  border: solid ${grey} 1px;
+  box-shadow: 3px 3px 3px 3px ${grey};
 `;
 
 const Detail = styled.div`

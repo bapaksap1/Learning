@@ -5,4 +5,5 @@ export type Tcard = {
   year: string;
   onClick: React.MouseEventHandler<HTMLDivElement>;
   center?: boolean
+  display?: "horizontal" | "vertical"
 };

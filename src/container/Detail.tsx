@@ -5,7 +5,6 @@ import H1 from "../component/Font/H1";
 import P from "../component/Font/P";
 import PictureSlider from "../component/PictureSlider";
 import Badge from "../component/Badge";
-import pictureSlider from "../component/PictureSlider";
 import {PictureSlide} from "../utils/constants/project";
 
 const Detail = () => {

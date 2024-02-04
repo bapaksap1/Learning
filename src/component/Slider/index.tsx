@@ -4,6 +4,7 @@ import Card from "../Card";
 import arrowRight from "../../icons/arrow-right.svg";
 import arrowLeft from "../../icons/arrow-left.svg";
 import { useNavigate } from "react-router-dom";
+import "./slider.css";
 
 type Tslider = {
   cardContent?: {
@@ -13,6 +14,7 @@ type Tslider = {
     description: string;
   }[];
   card?: boolean;
+  cardDisplay?: "horizontal" | "vertical";
 };
 
 const SimpleSlider: React.FC<Tslider> = (props) => {
@@ -28,21 +30,25 @@ const SimpleSlider: React.FC<Tslider> = (props) => {
     nextArrow: <img src={arrowRight} alt="" />,
     prevArrow: <img src={arrowLeft} alt="" />,
     dots: true,
+    useCSS: true,
   };
 
   return (
     <Slider {...settings}>
       {props.card
         ? props?.cardContent?.map((e) => (
-            <Card
-              key={e.description}
-              image={e.image}
-              category={e.category}
-              title={e.description}
-              year={e.year}
-              center
-              onClick={() => navigate("/detail")}
-            />
+            <div className="test1">
+              <Card
+                key={e.description}
+                image={e.image}
+                category={e.category}
+                title={e.description}
+                year={e.year}
+                center
+                onClick={() => navigate("/detail")}
+                display={props.cardDisplay}
+              />
+            </div>
           ))
         : null}
     </Slider>
